@@ -1,0 +1,70 @@
+3AL (Server) Expiry -- February
+==================
+Linode: 3al, P@55w0rd_linode
+
+Server: root, XdZqMg4!x8_$R$$q
+
+SA MSSQL: P@55w0rd_SA_3al@dmin
+BORGXIGB5NCWUQD0XZE15
+
+Cpanel (CPanel) Expiry -- February
+===================
+uname: oladapookupe@gmail.com
+pwd: x8_$R$$qCpanel
+url: https://www.buycpanel.com/
+
+BORGXIGB5NCWUQD0XZE15
+
+https://savyt.com/privacy-policy
+https://savyt.com/terms-and-conditions
+
+
+P@55w0rd_sendgrid213.219.39.108
+
+sqlcmd -S localhost -U SA -Q 'select @@VERSION'
+
+Microsoft SQL Server 2017 (RTM-CU3-GDR) (KB4052987) - 14.0.3015.40 (X64) 
+	Dec 22 2017 16:13:22 
+	Copyright (C) 2017 Microsoft Corporation
+	Express Edition (64-bit) on Linux (CentOS Linux 7 (Core))                 
+
+
+GODADDY Domain (Domain Name) 
+=============================
+uname: oladapookupe@gmail.com
+pwd: OOjrkgjh588ggdvEE
+pin: 8866
+
+
+SSL Domain (SSL) Expiry -- February
+===================
+uname: oladapookupe@gmail.com
+pwd: OOjrkgjh58ssl
+url: https://www.ssls.com
+
+
+
+DB
+theelec1_elect”
+
+
+
+D=NG;J@6e7%V
+
+
+
+
+
+ftp
+N~Roiu-t.L^.
+
+
+
+
+
+
+Receipt
+
+https://bootsnipp.com/snippets/GQp2R
+
+https://bootsnipp.com/snippets/featured/payment-receipt-bs3
