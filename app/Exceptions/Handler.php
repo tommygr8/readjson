@@ -38,4 +38,8 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function report(Throwable $e)
+    {
+        throw new CustomException($e->getMessage(),$e->getCode());
+    }
 }

@@ -13,6 +13,8 @@ use Illuminate\Queue\Middleware\WithoutOverlapping;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Carbon\Exceptions\InvalidFormatException;
+use Illuminate\Http\File;
 
 class ReadJsonFileJob implements ShouldQueue
 {
@@ -24,7 +26,7 @@ class ReadJsonFileJob implements ShouldQueue
      * @return void
      */
     private $file_name;
-    private $resume_path = 'resume.txt';
+    private $resume_path;
     private $resume_id = 0;
     private $job_model;
 
@@ -45,12 +47,11 @@ class ReadJsonFileJob implements ShouldQueue
 
         $this->job_model->status = "Processing";
         $this->job_model->save();
-        $contents = \File::get( $this->file_name);
+        $contents = File::get( $this->file_name);
 
         $chunks = array_chunk(json_decode($contents), 1000);
 
         $this->resume_id = (int) $this->getResumeId();
-        Log::info("Resume id ".$this->resume_id);
         $i =0;
         foreach($chunks as  $chunk) {
             foreach ($chunk as $data) {
@@ -60,11 +61,10 @@ class ReadJsonFileJob implements ShouldQueue
                     try {
                         $age = Carbon::parse($data->date_of_birth)->age;
 
-                    } catch (\Carbon\Exceptions\InvalidFormatException $e) {
+                    } catch (InvalidFormatException $e) {
 
                         $aga = Carbon::createFromFormat('d/m/Y', $data->date_of_birth)->age;
                     }
-                    Log::info("age  : ".$age);
 
                     if(empty($age) || ( $age >= 18 && $age >= 65 )) {
 
@@ -91,34 +91,25 @@ class ReadJsonFileJob implements ShouldQueue
 
                 $i++;
 
-
-
             }
         }
 
         $this->job_model->status = "Completed";
         $this->job_model->save();
 
-        Log::info("End of Log");
     }
 
 
     function getResumeId()
     {
-        $id = 0;
-
         if (Storage::exists($this->resume_path)) {
             $contents = Storage::get($this->resume_path);
             $id = (int)trim($contents);
-
         } else {
             $id = 0;
             $this->logResumeId($id);
-
         }
-
         return $id;
-
     }
 
     function logResumeId($resumeid)
