@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
-use Illuminate\Http\File;
+
 
 class ReadJsonFileJob implements ShouldQueue
 {
@@ -47,7 +47,7 @@ class ReadJsonFileJob implements ShouldQueue
 
         $this->job_model->status = "Processing";
         $this->job_model->save();
-        $contents = File::get( $this->file_name);
+        $contents = \File::get( $this->file_name);
 
         $chunks = array_chunk(json_decode($contents), 1000);
 
