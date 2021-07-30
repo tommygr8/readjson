@@ -1,4 +1,4 @@
-#<p align="center"><a href="https://github.com/tommygr8/readjson" target="_blank">Process JSON File</a></p>
+#Process JSON File
 
 
 ## About Project
